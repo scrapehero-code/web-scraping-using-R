@@ -116,8 +116,6 @@ start_scraping <- function(){
   product_urls = list()
   for (listing_page_number in 1:5) {
     response <- send_request(listing_page_url)
-    list_of_urls <- get_product_url_next_page_url(response)
-    # new code line below. 3 lines only
     listing_page_url <- get_next_page_url(response)
     products_from_current_page <- get_product_urls(response)
     product_urls < append(product_urls, products_from_current_page)
